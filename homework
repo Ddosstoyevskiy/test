@@ -1,0 +1,21 @@
+import math
+
+
+def rast(point_1, point_2):
+    """ Возвращает расстояние между двумя пунктами """
+    a = ((point_2[0] - point_1[0]) ** 2 + (point_2[1] - point_1[1]) ** 2) ** 0.5
+    return a
+def kratput(toch:list=[(0,2),(2,5)]):
+    """Печатает кратчайший путь"""
+    pos = []
+    full = []
+    finish =[]
+
+    for i in range(len(toch)):
+        for j in range(len(toch)):
+            pos.append(rast(toch[i],toch[j]))
+        full.append(pos)
+        pos = []
+    che = bfs(full,0)
+    print(che)
+    print("Полный минимальный путь равен:",che[len(che)-1])
